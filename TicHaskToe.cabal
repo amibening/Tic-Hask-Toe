@@ -27,10 +27,11 @@ executable TicHaskToe
                     , A4
                     , A5
                     , Sandbox
+                    , Irfanquestions
 
     build-depends:
         base ^>=4.14.1.0
       , random
 
-    hs-source-dirs:   solutions
+    hs-source-dirs:   solutions, mysandbox
     default-language: Haskell2010
