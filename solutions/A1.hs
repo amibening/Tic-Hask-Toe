@@ -104,6 +104,12 @@ showGameState state = case state of
   inProgressGameState -> "The game is currently in progress."
 -}
 
+{-
+-- Execute as follows but not clear on its workings !
+state = wonGameState
+showGameState state 
+}
+
 -- Q#11
 
 switchPlayer = undefined
