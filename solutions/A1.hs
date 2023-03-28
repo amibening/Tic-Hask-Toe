@@ -1,6 +1,7 @@
 module A1 where
 
 import Data.Char (toUpper)
+import System.Random
 
 -- *** Assignment 1-1 *** --
 
@@ -61,7 +62,7 @@ inProgressGameState = InProgress
 
 -- Q#08
 
-type Player = Square
+type Player1 = Square -- changes as conflicts name in same file !!
 
 type Row = [Square]
 
@@ -73,14 +74,26 @@ type Move = (Int, Int)
 
 -- Q#09
 
-getFirstPlayer = undefined
+data Player = FirstX | SecondO
+  deriving (Show, Eq)
 
-getFirstPlayer_ = undefined
+getFirstPlayer :: Bool -> Player
+getFirstPlayer b = if b then FirstX else SecondO
+
+-- Another Random way to do this  is
+--import System.Random  -- added to top of file
+
+getFirstRandomPlayer :: IO Bool
+getFirstRandomPlayer = randomIO
 
 -- Q#10
-
-showGameState gs = undefined
-
+{-
+showGameState :: GameState -> String
+showGameState gameState = case gameState of
+  Ongoing player -> "It's " ++ show player ++ "'s turn to play."
+  Draw -> "The game ended in a draw."
+  Won player -> "Player " ++ show player ++ " has won the game!"
+-}
 -- Q#11
 
 switchPlayer = undefined
