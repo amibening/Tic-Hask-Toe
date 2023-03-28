@@ -29,8 +29,21 @@ _SEP_ = "_|_"
 
 -- *** Assignment 1-2 *** --
 
--- Q#06
-data Square
+-- Q#06  Question why do we not need MkSquare as constructor here as it errors if added ??
+data Square = X | O | Empty
+  deriving (Show, Eq)
+
+xSquare = X
+
+oSquare = O
+
+emptySquare = Empty
+
+-- execute by running following on cabal command line
+--xSquare
+--oSquare
+--emptySquare
+--xSquare == oSquare
 
 -- Q#07
 data GameState
