@@ -62,7 +62,7 @@ inProgressGameState = InProgress
 
 -- Q#08
 
-type Player1 = Square -- changes as conflicts name in same file !!
+type Player = Square
 
 type Row = [Square]
 
@@ -73,11 +73,11 @@ type Board = [Row]
 type Move = (Int, Int)
 
 -- Q#09
-
-data Player = FirstX | SecondO
+-- Note -- Player changed to PlayerData as else conflicts type name in same file !!
+data Playerdata = FirstX | SecondO
   deriving (Show, Eq)
 
-getFirstPlayer :: Bool -> Player
+getFirstPlayer :: Bool -> Playerdata
 getFirstPlayer b = if b then FirstX else SecondO
 
 -- Another Random way to do this  is
