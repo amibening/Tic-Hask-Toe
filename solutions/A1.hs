@@ -87,13 +87,23 @@ getFirstRandomPlayer :: IO Bool
 getFirstRandomPlayer = randomIO
 
 -- Q#10
-{-
+
+--definition from Qu 07
+--data GameState = W | L | Tie | InProgress deriving (Show, Eq) --  definition from Qu 07
+--wonGameState = W
+--lostGameState = L -- in decription Github notes says won assume meant lost
+--tieGameState = Tie
+--inProgressGameState = InProgress
+
+{- toDO and debug understand !
 showGameState :: GameState -> String
-showGameState gameState = case gameState of
-  Ongoing player -> "It's " ++ show player ++ "'s turn to play."
-  Draw -> "The game ended in a draw."
-  Won player -> "Player " ++ show player ++ " has won the game!"
+showGameState state = case state of
+  wonGameState -> "Congratulations, you've won the game!"
+  lostGameState -> "Sorry, you've lost the game."
+  tieGameState -> "The game is a tie."
+  inProgressGameState -> "The game is currently in progress."
 -}
+
 -- Q#11
 
 switchPlayer = undefined
