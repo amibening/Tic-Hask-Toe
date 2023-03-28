@@ -46,7 +46,18 @@ emptySquare = Empty
 --xSquare == oSquare
 
 -- Q#07
-data GameState
+data GameState = W | L | Tie | InProgress
+  deriving (Show, Eq)
+
+wonGameState = W
+
+lostGameState = L -- in decription Github notes says won assume meant lost
+
+tieGameState = Tie
+
+inProgressGameState = InProgress
+
+-- execute as above Q6
 
 -- Q#08
 
