@@ -107,8 +107,8 @@ showGameState state = case state of
 {-
 -- Execute as follows but not clear on its workings !
 state = wonGameState
-showGameState state 
-}
+showGameState state
+-}
 
 -- Q#11
 
