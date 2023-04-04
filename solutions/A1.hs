@@ -110,7 +110,14 @@ etc...
 
 -- Q#11
 
---switchPlayer :: Player -> Player
+-- Question Player function declarion issues in file ??
+
+data Player1 = Xo | Ox | Emptyxo
+
+switchPlayer :: Player1 -> Player1
+switchPlayer Xo = Ox
+switchPlayer Ox = Xo
+switchPlayer Emptyxo = Emptyxo
 
 -- Q#12
 
