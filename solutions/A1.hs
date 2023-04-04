@@ -103,14 +103,14 @@ showGameState gameState = case gameState of
   InProgress -> "The game is in progress."
 
 {-
--- Execute as follows but not clear on its workings !
+-- Execute as follows
 showGameState Tie
 etc...
 -}
 
 -- Q#11
 
-switchPlayer = undefined
+--switchPlayer :: Player -> Player
 
 -- Q#12
 
