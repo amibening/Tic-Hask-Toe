@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -Wno-incomplete-patterns #-}
+
 module A1 where
 
 import Data.Char (toUpper)
@@ -16,7 +18,7 @@ _DISPLAY_LOGO_ = True
 -- Q#03
 
 convertRowIndex :: Char -> Int
-convertRowIndex row = (fromEnum (toUpper row)) - 65
+convertRowIndex row = fromEnum (toUpper row) - 65
 
 -- Q#04
 
@@ -31,8 +33,7 @@ _SEP_ = "_|_"
 -- *** Assignment 1-2 *** --
 
 -- Q#06  Question why do we not need MkSquare as constructor here as it errors if added ??
-data Square = X | O | Empty
-  deriving (Show, Eq)
+data Square = X | O | Empty deriving (Show)
 
 xSquare = X
 
@@ -47,16 +48,15 @@ emptySquare = Empty
 --xSquare == oSquare
 
 -- Q#07
-data GameState = W | L | Tie | InProgress
-  deriving (Show, Eq)
+data GameState = Xwon | Owon | Tie | InProgress --deriving (Show)
 
-wonGameState = W
+--xwonGameState = Xwon
 
-lostGameState = L -- in decription Github notes says won assume meant lost
+--owonGameState = Owon
 
-tieGameState = Tie
+--tieGameState = Tie
 
-inProgressGameState = InProgress
+--inProgressGameState = InProgress
 
 -- execute as above Q6
 
@@ -95,19 +95,17 @@ getFirstRandomPlayer = randomIO
 --tieGameState = Tie
 --inProgressGameState = InProgress
 
-{- toDO and debug understand !
 showGameState :: GameState -> String
-showGameState state = case state of
-  wonGameState -> "Congratulations, you've won the game!"
-  lostGameState -> "Sorry, you've lost the game."
-  tieGameState -> "The game is a tie."
-  inProgressGameState -> "The game is currently in progress."
--}
+showGameState gameState = case gameState of
+  Xwon -> "Congratulations! X won the game."
+  Owon -> "Congratulations! O won the game."
+  Tie -> "Game is a Tie"
+  InProgress -> "The game is in progress."
 
 {-
 -- Execute as follows but not clear on its workings !
-state = wonGameState
-showGameState state
+showGameState Tie
+etc...
 -}
 
 -- Q#11
