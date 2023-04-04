@@ -1,3 +1,4 @@
+{-# LANGUAGE InstanceSigs #-}
 {-# OPTIONS_GHC -Wno-incomplete-patterns #-}
 
 module A1 where
@@ -121,4 +122,15 @@ switchPlayer Emptyxo = Emptyxo
 
 -- Q#12
 
-showSquare = undefined
+--showSquare = undefined
+-- Read up on this and do again why can't I use same X and O .... and Square ...??
+data Square1 = X2 | O2 | Empty2 deriving (Eq)
+
+instance Show Square1 where
+  show :: Square1 -> String
+  show X2 = "X"
+  show O2 = "O"
+  show Empty2 = "_"
+
+showSquare :: Square1 -> String
+showSquare square = show square
