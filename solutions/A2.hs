@@ -52,9 +52,32 @@ _EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_
 
 -- Q#05
 
-isTied = undefined
+-- Define the Square type with three constructors
+--data Square = X | O | Empty deriving (Show, Eq)
 
-_TIED_BOARD_ = undefined
+-- Define the Board type as a synonym for [[Square]]
+type Board = [[Square]]
+
+-- Define a function to check if a Square is Empty
+isEmpty :: Square -> Bool
+isEmpty Empty = True
+isEmpty _ = False
+
+-- Define the isTied function to check if a Board is tied
+isTied :: Board -> Bool
+isTied board = all (not . isEmpty) (concat board)
+
+-- Declare a constant _TIED_BOARD_ to test the isTied function
+_TIED_BOARD_ :: Board
+_TIED_BOARD_ =
+  [ [X, O, O],
+    [O, X, X],
+    [O, X, O]
+  ]
+
+--isTied = undefined
+
+--_TIED_BOARD_ = undefined
 
 -- Q#06
 
