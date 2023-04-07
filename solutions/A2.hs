@@ -36,9 +36,19 @@ readDigit c
 
 -- Q#04
 
-_EMPTY_ROW_ = undefined
+-- CODE THAT IS IN A1 FILE
+-- Define the Square type with three constructors
+--data Square = X | O | Empty deriving (Show)
+-- Define the size constant
+--_SIZE_ :: Int
+--_SIZE_ = 3
 
-_EMPTY_BOARD_ = undefined
+-- Declare _EMPTY_ROW_ and _EMPTY_BOARD_ using replicate and Empty constructor
+_EMPTY_ROW_ :: [Square]
+_EMPTY_ROW_ = replicate _SIZE_ Empty
+
+_EMPTY_BOARD_ :: [[Square]]
+_EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_
 
 -- Q#05
 
