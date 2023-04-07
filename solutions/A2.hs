@@ -53,7 +53,7 @@ _EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_
 -- Q#05
 
 -- Define the Square type with three constructors
---data Square = X | O | Empty deriving (Show, Eq)
+--data Square = X | O | Empty deriving (Show)
 
 -- Define the Board type as a synonym for [[Square]]
 type Board = [[Square]]
@@ -65,7 +65,7 @@ isEmpty _ = False
 
 -- Define the isTied function to check if a Board is tied
 isTied :: Board -> Bool
-isTied board = all (not . isEmpty) (concat board)
+isTied board = and $ map (not . any isEmpty) board
 
 -- Declare a constant _TIED_BOARD_ to test the isTied function
 _TIED_BOARD_ :: Board
@@ -81,7 +81,10 @@ _TIED_BOARD_ =
 
 -- Q#06
 
-indexRowStrings = undefined
+--indexRowStrings = undefined
+
+indexRowStrings :: [String] -> [(Char, String)]
+indexRowStrings strs = zip ['A' ..] strs
 
 -- Q#07
 
