@@ -90,6 +90,9 @@ indexRowStrings strs = zip ['A' ..] strs
 
 formatLine = undefined
 
+--formatLine :: String -> [String] -> String
+--formatLine sep strs = sep ++ intercalate sep strs ++ sep
+
 -- *** Assignment 2-2 *** --
 
 -- Q#08

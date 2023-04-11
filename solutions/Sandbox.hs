@@ -43,3 +43,10 @@ getAllPowers (MkPokemon _ _ p) = p
 
 -- get first power
 getFirstPower (MkPokemon _ _ (p : _)) = p
+
+-- my test example code
+
+n = a `div` length xs
+  where
+    a = 30
+    xs = [1, 2, 3, 4, 5]
