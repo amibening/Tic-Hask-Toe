@@ -97,7 +97,10 @@ formatLine strs = "_|" ++ intercalate "|_" strs ++ "|_"
 
 -- Q#08
 
-isMoveInBounds = undefined
+--isMoveInBounds = undefined
+
+isMoveInBounds :: (Int, Int) -> Bool
+isMoveInBounds (row, col) = all (\x -> x >= 0 && x < _SIZE_) [row, col]
 
 -- Q#09
 
