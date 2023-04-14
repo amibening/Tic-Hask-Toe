@@ -129,4 +129,22 @@ convertColIndex col = case col of
 
 -- Q#10
 
-replaceSquareInRow = undefined
+--replaceSquareInRow = undefined
+{-
+replaceSquareInRow :: Player -> Int -> Row -> Row
+replaceSquareInRow player col row =
+  let (left, right) = splitAt col row
+    newSquare = case player of
+                    X -> "_X_"
+                    O -> "_O_"
+  in if col < 0 || col >= length row
+       then row
+       else left ++ newSquare : tail right
+
+rsX :: Int -> Row -> Row
+rsX = replaceSquareInRow X
+
+rsO :: Int -> Row -> Row
+rsO = replaceSquareInRow O
+
+-}
