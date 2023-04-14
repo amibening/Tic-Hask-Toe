@@ -104,7 +104,28 @@ isMoveInBounds (row, col) = all (\x -> x >= 0 && x < _SIZE_) [row, col]
 
 -- Q#09
 
-stringToMove = undefined
+--stringToMove = undefined
+{-
+stringToMove :: String -> Move
+stringToMove [col, row]
+  | length [col, row] == 2 = Move (convertRowIndex row) (convertColIndex col)
+  | otherwise = _INVALID_MOVE_
+stringToMove _ = _INVALID_MOVE_
+
+convertRowIndex :: Char -> Int -- in A1 but had to be commented out ??
+convertRowIndex row = case row of
+  '1' -> 0
+  '2' -> 1
+  '3' -> 2
+  _ -> error "Invalid row index"
+
+convertColIndex :: Char -> Int
+convertColIndex col = case col of
+  'A' -> 0
+  'B' -> 1
+  'C' -> 2
+  _ -> error "Invalid column index"
+-}
 
 -- Q#10
 
