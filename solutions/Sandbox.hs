@@ -1,5 +1,7 @@
 module Sandbox where
 
+import Control.Concurrent (yield)
+
 {-
 data Pokemon = MkPokemon Name Id [Power]
     deriving Show
@@ -50,3 +52,13 @@ n = a `div` length xs
   where
     a = 30
     xs = [1, 2, 3, 4, 5]
+
+-- types
+
+zeroto :: Int -> [Int]
+zeroto n = [0 .. n]
+
+-- curried functions
+-- Functions with multiple arguments are possible by retruning function as result
+add' :: Int -> (Int -> Int)
+add' x y = x + y

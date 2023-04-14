@@ -88,10 +88,10 @@ indexRowStrings strs = zip ['A' ..] strs
 
 -- Q#07
 
-formatLine = undefined
+--formatLine = undefined
 
---formatLine :: String -> [String] -> String
---formatLine sep strs = sep ++ intercalate sep strs ++ sep
+formatLine :: [String] -> String
+formatLine strs = "_|" ++ intercalate "|_" strs ++ "|_"
 
 -- *** Assignment 2-2 *** --
 
