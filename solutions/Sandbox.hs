@@ -62,3 +62,16 @@ zeroto n = [0 .. n]
 -- Functions with multiple arguments are possible by retruning function as result
 add' :: Int -> (Int -> Int)
 add' x y = x + y
+
+-- Ian Recursive Code Egs 15th April
+
+sum' :: Num a => [a] -> a
+sum' (x : xs) = x + sum' xs
+sum' [] = 0
+
+-- sum' [1,2,3] =>
+--      (1:[2, 3]) = 1 + sum' [2, 3]
+--      (2:[3])    =    2 + sum' [3]
+--      (3:[])     =        3 + sum' []
+--      []         =            0
+--                 = 1 + 2 + 3 + 0 = 6
