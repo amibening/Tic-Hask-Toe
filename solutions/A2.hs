@@ -102,7 +102,14 @@ formatLine strs = "_|" ++ intercalate "|_" strs ++ "|_"
 isMoveInBounds :: (Int, Int) -> Bool
 isMoveInBounds (row, col) = all (\x -> x >= 0 && x < _SIZE_) [row, col]
 
+-- suggested ans
+-- isMoveInBounds (row, col) = and [ row >= 0, r < _SIZE_, c >= 0, c < _SIZE_]
+
 -- Q#09
+-- suggested ans
+--stringToMove :: String -> Move
+--stringToMove [r, c] = (convertRowIndex r, readDigit c)
+--stringToMove _ = _INVALID_MOVE_ -- (-1,-1)
 
 --stringToMove = undefined
 {-
@@ -128,6 +135,10 @@ convertColIndex col = case col of
 -}
 
 -- Q#10
+
+-- suggested ans
+--replaceSquareInRow :: Player -> Int -> Row -> Row
+--replaceSquareInRow
 
 --replaceSquareInRow = undefined
 {-
