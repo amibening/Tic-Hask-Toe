@@ -75,3 +75,15 @@ sum' [] = 0
 --      (3:[])     =        3 + sum' []
 --      []         =            0
 --                 = 1 + 2 + 3 + 0 = 6
+
+-- Worker Wrapper Use Case eg from slide 23
+isPrime :: Int -> Bool
+isPrime n
+  | n <= 1 = False
+  | n <= 3 = True
+  | otherwise = go 2
+  where
+    go i
+      | i >= n = True
+      | mod n i == 0 = False
+      | otherwise = go (i + 1)
