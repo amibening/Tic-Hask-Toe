@@ -2,22 +2,28 @@ module A3 where
 
 import A1
 import A2
-
-import Data.List (transpose)
+import Data.List (intercalate, transpose)
 
 -- *** Assignment 3-1 ***
 
 -- Q#01
 
-showInts = undefined
+--showInts = undefined
+showInts :: [Int] -> [String]
+showInts [] = []
+showInts (x : xs) = show x : showInts xs
 
+--_HEADER_ = undefined
 
-_HEADER_ = undefined
+range = [1 .. 10]
+
+numbers = showInts range
+
+_HEADER_ = intercalate " | " (" " : numbers)
 
 -- Q#02
 
 showSquares = undefined
-
 
 -- Q#03
 
@@ -31,16 +37,13 @@ isColEmpty = undefined
 
 dropFirstCol = undefined
 
-
 dropLastCol = undefined
 
 -- Q#06
 
 getDiag1 = undefined
 
-
 getDiag2 = undefined
-
 
 getAllLines = undefined
 
