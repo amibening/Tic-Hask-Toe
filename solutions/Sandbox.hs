@@ -87,3 +87,5 @@ isPrime n
       | i >= n = True
       | mod n i == 0 = False
       | otherwise = go (i + 1)
+
+-- Fold example code

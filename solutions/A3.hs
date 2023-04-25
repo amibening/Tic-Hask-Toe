@@ -23,7 +23,16 @@ _HEADER_ = intercalate " | " (" " : numbers)
 
 -- Q#02
 
-showSquares = undefined
+--showSquares = undefined
+
+data Squareq3 = Square Int Int
+
+showSquare :: Squareq3 -> String
+showSquare (Square x y) = "(" ++ show x ++ ", " ++ show y ++ ")"
+
+showSquares :: [Squareq3] -> [String]
+showSquares [] = []
+showSquares (x : xs) = A3.showSquare x : showSquares xs
 
 -- Q#03
 
