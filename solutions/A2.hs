@@ -86,13 +86,12 @@ isMoveInBounds (row, col) = all (\x -> x >= 0 && x < _SIZE_) [row, col]
 -- isMoveInBounds (row, col) = and [ row >= 0, r < _SIZE_, c >= 0, c < _SIZE_]
 
 -- Q#09
--- suggested ans
---stringToMove :: String -> Move
---stringToMove [r, c] = (convertRowIndex r, readDigit c)
---stringToMove _ = _INVALID_MOVE_ -- (-1,-1)
+-- Ian's ans as in video
+stringToMove :: String -> Move
+stringToMove [r, c] = (convertRowIndex r, readDigit c)
+stringToMove _ = _INVALID_MOVE_ -- (-1,-1)
 
---stringToMove = undefined
-{-
+{- my code had errors
 stringToMove :: String -> Move
 stringToMove [col, row]
   | length [col, row] == 2 = Move (convertRowIndex row) (convertColIndex col)
@@ -115,13 +114,17 @@ convertColIndex col = case col of
 -}
 
 -- Q#10
+-- Ian's ans as in video - wont run on my setup!!??
+replaceSquareInRow :: Player -> Int -> Row -> Row
+replaceSquareInRow p c row = xs ++ ys
+  where
+    (xs, ys) = splitAt c row
+    ys'
+      | null ys = []
+      | c < 0 = ys
+      | otherwise = p : tail ys
 
--- suggested ans
---replaceSquareInRow :: Player -> Int -> Row -> Row
---replaceSquareInRow
-
---replaceSquareInRow = undefined
-{-
+{- my code had errors
 replaceSquareInRow :: Player -> Int -> Row -> Row
 replaceSquareInRow player col row =
   let (left, right) = splitAt col row
