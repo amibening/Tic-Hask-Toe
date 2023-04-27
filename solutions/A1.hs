@@ -18,8 +18,8 @@ _DISPLAY_LOGO_ = True
 
 -- Q#03
 
---convertRowIndex :: Char -> Int
---convertRowIndex row = fromEnum (toUpper row) - 65
+convertRowIndex :: Char -> Int
+convertRowIndex row = fromEnum (toUpper row) - 65
 
 -- Q#04
 

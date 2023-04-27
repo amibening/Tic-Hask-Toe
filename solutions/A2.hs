@@ -102,7 +102,14 @@ formatLine strs = "_|" ++ intercalate "|_" strs ++ "|_"
 isMoveInBounds :: (Int, Int) -> Bool
 isMoveInBounds (row, col) = all (\x -> x >= 0 && x < _SIZE_) [row, col]
 
+-- NOTES on my answer Q8 using Lamda
+--In Haskell, the code isMoveInBounds is defining a function that takes a tuple of two Int values, (row, col), and returns a Bool value indicating whether the given position is within the bounds of a square board of size _SIZE_.
+--The all function is used to check that both row and col are greater than or equal to 0 and less than _SIZE_. The expression \x -> x >= 0 && x < _SIZE_ is a lambda function that takes a single argument x and returns a Boolean value indicating whether x is within the bounds of the board. The all function applies this lambda function to each element of the list [row, col] and returns True only if the lambda function returns True for all elements.
+--Therefore, if _SIZE_ = 3, the function isMoveInBounds will return True if the position (row, col) is within the bounds of a 3x3 square board, and False otherwise.
+
 -- suggested ans
+-- type Move = (Int, Int)
+-- isMoveInBounds :: Move -> Bool
 -- isMoveInBounds (row, col) = and [ row >= 0, r < _SIZE_, c >= 0, c < _SIZE_]
 
 -- Q#09
