@@ -69,7 +69,7 @@ type Row = [Square]
 
 type Line = [Square]
 
-type Board = [Row]
+type Board = [[Square]]
 
 type Move = (Int, Int)
 

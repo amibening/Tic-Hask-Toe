@@ -55,9 +55,6 @@ _EMPTY_BOARD_ = replicate _SIZE_ _EMPTY_ROW_
 -- Define the Square type with three constructors
 --data Square = X | O | Empty deriving (Show)
 
--- Define the Board type as a synonym for [[Square]]
-type Board = [[Square]]
-
 -- Define a function to check if a Square is Empty
 isEmpty :: Square -> Bool
 isEmpty Empty = True
