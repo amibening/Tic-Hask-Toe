@@ -42,22 +42,22 @@ oSquare = O
 
 emptySquare = Empty
 
--- execute by running following on cabal command line
+-- execute by running following on cabal command line :t will be Square
 --xSquare
 --oSquare
 --emptySquare
 --xSquare == oSquare
 
 -- Q#07
-data GameState = Xwon | Owon | Tie | InProgress --deriving (Show)
+data GameState = Xwon | Owon | Tie | InProgress deriving (Show)
 
---xwonGameState = Xwon
+xwonGameState = Xwon
 
---owonGameState = Owon
+owonGameState = Owon
 
---tieGameState = Tie
+tieGameState = Tie
 
---inProgressGameState = InProgress
+inProgressGameState = InProgress
 
 -- execute as above Q6
 
@@ -69,21 +69,18 @@ type Row = [Square]
 
 type Line = [Square]
 
---type Board = [Row]
+type Board = [Row]
 
 type Move = (Int, Int)
 
 -- Q#09
--- Note -- Player changed to PlayerData as else conflicts type name in same file !!
-data Playerdata = FirstX | SecondO
-  deriving (Show, Eq)
+-- Corrected Player type which is of data type of Square
+-- so has possible outcome of - X | O | Empty
+getFirstPlayer :: Bool -> Player
+getFirstPlayer b = if b then X else O
 
-getFirstPlayer :: Bool -> Playerdata
-getFirstPlayer b = if b then FirstX else SecondO
-
--- Another Random way to do this  is
+--Another Random way to do this  is
 --import System.Random  -- added to top of file
-
 getFirstRandomPlayer :: IO Bool
 getFirstRandomPlayer = randomIO
 
@@ -112,25 +109,28 @@ etc...
 -- Q#11
 
 -- Question Player function declarion issues in file ??
+-- Corrected Player type which is of data type of Square and use it's data
 
-data Player1 = Xo | Ox | Emptyxo
-
-switchPlayer :: Player1 -> Player1
-switchPlayer Xo = Ox
-switchPlayer Ox = Xo
-switchPlayer Emptyxo = Emptyxo
+switchPlayer :: Player -> Player
+switchPlayer X = O
+switchPlayer O = X
+switchPlayer Empty = Empty
 
 -- Q#12
 
---showSquare = undefined
--- Read up on this and do again why can't I use same X and O .... and Square ...??
-data Square1 = X2 | O2 | Empty2 deriving (Eq)
+-- showSquare = undefined
+-- Corrected coded with case statement where option is below for info but is commented out
 
-instance Show Square1 where
-  show :: Square1 -> String
-  show X2 = "X"
-  show O2 = "O"
-  show Empty2 = "_"
+showSquare :: Square -> String
+showSquare sq = case sq of
+  X -> "X"
+  O -> "O"
+  Empty -> "_"
 
-showSquare :: Square1 -> String
-showSquare square = show square
+{- where example of same question 12
+showSquare sq = symbol where
+  symbol = case sq of
+    X -> "X"
+    O -> "O"
+    Empty -> "_"
+-}
