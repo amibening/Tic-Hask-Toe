@@ -16,7 +16,7 @@ numbers = showInts _RANGE_
 _HEADER_ = intercalate " | " (" " : numbers)
 
 -- Q#02
-
+-- ISsue why can't I get this to work with Square ??
 --showSquares = undefined
 
 data Squareq3 = Square Int Int
@@ -54,7 +54,11 @@ getAllLines = undefined
 
 -- Q#07
 
-putSquare = undefined
+--putSquare = undefined
+-- naming convention i = row j = colum index
+----putSquare :: Player -> Board -> (Int, Int) -> Board
+--putSquare p (r : rs) (0, j) = let r` = replaceSquareInRow p j r in r` : rs`
+--putSquare _ [] _ = []
 
 -- Q#08
 
