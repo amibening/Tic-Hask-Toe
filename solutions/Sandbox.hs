@@ -1,6 +1,7 @@
 module Sandbox where
 
 import Control.Concurrent (yield)
+import System.Random
 
 {-
 data Pokemon = MkPokemon Name Id [Power]
@@ -88,4 +89,45 @@ isPrime n
       | mod n i == 0 = False
       | otherwise = go (i + 1)
 
--- Fold example code
+-- Compose (.) example code
+squared :: Int -> Int
+squared x = x * x
+
+addSome1 :: Int -> Int
+addSome1 x = x + 1
+
+addSome2 :: Int -> Int
+addSome2 x = x + 2
+
+addSome3 :: Int -> Int
+addSome3 x = x + 3
+
+--(squared . addSome)    -- returns 25
+
+-- Random IO - examples
+getFirstRandomPlayer1 :: IO Bool
+getFirstRandomPlayer1 = randomIO
+
+-- use Lamda expression
+greetTrainer :: IO ()
+greetTrainer =
+  putStrLn " Enter your name: "
+    >> getLine
+      >>= ( \name ->
+              putStrLn $ "Hi there, " ++ name ++ "!"
+          )
+
+-- refactor
+greetTrainerRe :: IO ()
+greetTrainerRe = do
+  putStrLn " Enter your name: "
+  name <- getLine
+  putStrLn $ "Hi there, " <> name ++ "!"
+
+greetTainerDo :: IO ()
+greetTainerDo = do
+  putStrLn "Enter your first name: "
+  fname <- getLine
+  putStrLn "Enter your last name: "
+  lname <- getLine
+  putStrLn $ concat ["hi there, ", fname, " ", lname, "!"]
