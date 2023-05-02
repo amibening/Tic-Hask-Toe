@@ -11,7 +11,7 @@ showInts :: [Int] -> [String]
 showInts [] = []
 showInts (x : xs) = show x : showInts xs
 
--- without formatLine
+-- X without formatLine
 numbers = showInts _RANGE_
 
 _HEADERX_ = intercalate "_|_" (" " : numbers) ++ "|_"
@@ -20,17 +20,9 @@ _HEADERX_ = intercalate "_|_" (" " : numbers) ++ "|_"
 _HEADER_ = " " ++ formatLine (showInts _RANGE_)
 
 -- Q#02
--- Issue why can't I get this to work with Square ??
---showSquares = undefined
-
-data Squareq3 = Square Int Int
-
-showSquare :: Squareq3 -> String
-showSquare (Square x y) = "(" ++ show x ++ ", " ++ show y ++ ")"
-
-showSquares :: [Squareq3] -> [String]
+showSquares :: [Square] -> [String]
 showSquares [] = []
-showSquares (x : xs) = A3.showSquare x : showSquares xs
+showSquares (s : squares) = showSquare s : showSquares squares
 
 -- Q#03
 
