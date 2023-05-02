@@ -34,13 +34,32 @@ formatRows (r : rows) = formatLine (showSquares r) : formatRows rows
 
 -- Q#04
 
-isColEmpty = undefined
+{- Issue will come back
+isColEmpty :: Row -> Int -> Bool
+isColEmpty [] _ = True
+isColEmpty (Square _ y : squares) colIndex
+  | colIndex == 0 = False
+  | otherwise = isColEmpty squares (colIndex - 1)
+  where
+    squareIsEmpty (Square _ _) = False
+    squareIsEmpty Empty = True
+-}
 
 -- Q#05
+dropFirst :: Row -> Row
+dropFirst [] = []
+dropFirst (_ : squares) = squares
 
-dropFirstCol = undefined
+dropFirstCol :: Board -> Board
+dropFirstCol = map dropFirst
+  where
+    dropFirst [] = []
+    dropFirst (_ : squares) = squares
 
-dropLastCol = undefined
+dropLastCol :: Board -> Board
+dropLastCol = map dropLast
+  where
+    dropLast squares = init squares
 
 -- Q#06
 
