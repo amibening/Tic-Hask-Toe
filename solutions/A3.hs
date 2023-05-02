@@ -63,11 +63,26 @@ dropLastCol = map dropLast
 
 -- Q#06
 
-getDiag1 = undefined
+--type Line = [Square] in A1
 
-getDiag2 = undefined
+getDiag1 :: Board -> Line
+getDiag1 [] = []
+getDiag1 (row : rows) = case row of
+  [] -> []
+  (square : _) -> square : getDiag1 (map tail rows)
 
-getAllLines = undefined
+getDiag2 :: Board -> Line
+getDiag2 [] = []
+getDiag2 (row : rows) = case reverse row of
+  [] -> []
+  (square : _) -> square : getDiag2 (map init rows)
+
+getAllLines :: Board -> [Line]
+getAllLines b = concat [horizLines, vertLines, diagLines]
+  where
+    horizLines = b
+    vertLines = transpose b
+    diagLines = [getDiag1 b, getDiag2 b]
 
 -- *** Assignment 3-2 ***
 
