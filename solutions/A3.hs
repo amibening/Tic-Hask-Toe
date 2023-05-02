@@ -94,14 +94,40 @@ getAllLines b = concat [horizLines, vertLines, diagLines]
 --putSquare p (r : rs) (0, j) = let r` = replaceSquareInRow p j r in r` : rs`
 --putSquare _ [] _ = []
 
--- Q#08
+{- unsre why does not work ??
+putSquare :: Player -> Board -> Move -> Board
+putSquare player [] _ = []
+putSquare player (row : rows) (rowIndex, colIndex)
+  | rowIndex == 0 = (replaceSquareInRow player row colIndex) : rows
+  | otherwise = row : putSquare player rows ((rowIndex - 1), colIndex)
+-}
 
-prependRowIndices = undefined
+-- Q#08
+prependRowIndices :: [String] -> [String]
+prependRowIndices strs = worker $ indexRowStrings strs
+  where
+    worker [] = []
+    worker ((ix, str) : pairs) = (ix : str) : worker pairs
 
 -- Q#09
-
-isWinningLine = undefined
+{-   unsure why player does not work in this code ??
+isWinningLine :: Player -> Line -> Bool
+isWinningLine player line = go line False
+  where
+    go [] acc = acc
+    go (x:xs) acc
+      | x == player = True
+      | otherwise = False
+-}
 
 -- Q#10
+{-   could not get code to work ??
+isValidMove :: Board -> Move -> Bool
+isValidMove board move = isMoveInBounds move && isValidMoveWorker board move
 
-isValidMove = undefined
+isValidMoveWorker :: Board -> Move -> Bool
+isValidMoveWorker [] _ = False
+isValidMoveWorker (row:rows) (rowIndex, colIndex)
+  | rowIndex == 0 = isColEmpty row colIndex
+  | otherwise = isValidMoveWorker rows (rowIndex - 1, colIndex)
+-}
