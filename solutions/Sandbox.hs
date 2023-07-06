@@ -3,6 +3,9 @@ module Sandbox where
 import Control.Concurrent (yield)
 import System.Random
 
+main :: IO ()
+main = undefined
+
 {-
 data Pokemon = MkPokemon Name Id [Power]
     deriving Show
@@ -133,3 +136,15 @@ greetTainerDo = do
   putStrLn $ concat ["hi there, ", fname, " ", lname, "!"]
 
   -- Test with GitPod
+
+  -- List functions and pattern matching examples
+  -- Try out in www.replit.com as in video 2/4/2023
+  --alternate :: [a] -> [a]
+  --alternate []        = []
+  --alternate [_]       = []
+  --alternate [_, _]    = []
+  --alternate (_:y:zs) = y : alternate zs 
+
+-- zip e.g. with Inderterminate ranges
+fruits = ["apple","banana","pear","orange"]
+itemizedFruits = zip[1..] fruits 
